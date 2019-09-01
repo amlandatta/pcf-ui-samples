@@ -1,0 +1,10 @@
+instances: 1
+memory: 64M
+disk_quota: 50M
+buildpack-static: staticfile_buildpack
+domain: dev.apps.sys.mydomain.com
+timeout: 60
+SKIP_SSL_VALIDATION: "true"
+
+
+#cf push --vars-file vars-dev.yml

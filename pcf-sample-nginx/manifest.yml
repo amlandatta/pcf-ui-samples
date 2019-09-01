@@ -1,0 +1,24 @@
+---
+applications:
+- name: ui-app-a
+  #path: ui-app-a
+  instances: ((instances))
+  memory: ((memory))
+  disk_quota: ((disk_quota))
+  buildpacks:
+  - ((buildpack-static))
+  routes:
+  - route: ui-app-a.((domain))
+  #services:
+   #- instance_ABC
+  health-check-type: http
+  health-check-http-endpoint: /health.html
+  timeout: ((timeout))
+  env:
+    SKIP_SSL_VALIDATION: ((SKIP_SSL_VALIDATION))
+    #GRANT_TYPE: authorization_code
+    #SSO_IDENTITY_PROVIDERS: provider
+    #SSO_REDIRECT_URIS: redirect_url
+    #SSO_SCOPES: openid
+    #SSO_AUTHORITIES: openid, uaa.resource
+  port: 8080
