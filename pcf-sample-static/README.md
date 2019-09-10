@@ -1,5 +1,5 @@
-# pcf-sample-static
-Using `staticfile_buildpack` and app manifest to deploy applications
+# Using `staticfile_buildpack`
+Using staticfile_buildpack and app manifest to deploy applications
 
 __manifest.yml__
 
@@ -24,13 +24,16 @@ applications:
 ```
 
 __Deploy app__
-* Use var files for environment specific configurations
+
+> * Use templates
+> * Create var files per environment
 
 ```
 cd pcf-sample-static
 cf push --vars-file vars-dev.yml
 ```
 
+To understand folder structure deployed with above configuration
 __Check files inside the container__
 
 ```
@@ -43,7 +46,7 @@ drwxr-xr-x 1 vcap vcap 72 Sep  1 02:08 ../
 -rw-r--r-- 1 vcap vcap  3 Sep  1 01:52 health.html
 drwxr-xr-x 2 vcap vcap 24 Sep  1 01:50 ui-app-a/
 ```
-* Default `nginx.conf` with `staticfile_buildpack`
+View default `nginx.conf` with `staticfile_buildpack`
 
 ```
 cat nginx/conf/nginx.conf

@@ -1,16 +1,34 @@
-# pcf-sample-nginx
-Using `nginx_buildpack` and app manifest to deploy applications
+# Using `nginx_buildpack`
+Using nginx_buildpack and app manifest to deploy applications
 
 Refer [here](https://github.com/cloudfoundry/nginx-buildpack/tree/master/fixtures/mainline) for folder-structure to use nginx-buildpack
 
+```
+├── buildpack.yml (Required)
+├── manifest.yml
+├── mime.types (Required)
+├── nginx.conf (Required)
+├── public (Required)
+│   ├── error
+│   │   ├── 403.html
+│   │   ├── 404.html
+│   │   └── 500.html
+│   ├── health.html
+│   └── ui-app-a
+│       └── index.html
+└── vars-dev.yml
+```
+
 __Deploy app__
-* Use var files for environment specific configurations
 
 ```
 cd pcf-sample-static
 cf push --vars-file vars-dev.yml
 ```
+> * Use templates
+> * Create var files per environment
 
+To understand folder structure deployed with above configuration
 __Check files inside the container__
 
 ```
